@@ -49,12 +49,12 @@ jobs:
         run: |
           zip -r build.zip ./build
           zip -r coverage.zip ./coverage
-      - uses: actions/download-artifact@v3
       - name: Create a Release
         if: github.event_name=='push' && github.ref == 'refs/heads/master'
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/download-artifact@v3
 #      - run: npm install -g surge
 #      - name: Deploy to Staging
 #        if: github.event_name=="push"
