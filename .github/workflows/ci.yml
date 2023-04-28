@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # to be able to publish a GitHub release2
+      contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
     steps:
@@ -44,7 +44,12 @@ jobs:
         with:
           path: build
           name: build
-      - uses: actions/download-artifact@v3
+      - name: ZIP Assets
+        if: github.event_name=='push' && github.ref == 'refs/heads/master'
+        run: |
+          zip -r build.zip ./build
+          zip -r coverage.zip ./coverage
+      # - uses: actions/download-artifact@v3
       - name: Create a Release
         if: github.event_name=='push' && github.ref == 'refs/heads/master'
         run: npx semantic-release
