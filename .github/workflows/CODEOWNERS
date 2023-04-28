@@ -1,0 +1,4 @@
+* @CristinaRibateCog
+*.js @CristinaRibateCog
+*.yml @CristinaRibateCog
+/public/ *.js @CristinaRibateCog
