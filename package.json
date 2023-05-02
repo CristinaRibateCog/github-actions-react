@@ -43,8 +43,8 @@
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@vercel/ncc": "^0.36.1",
     "prettier": "2.8.8",
-    "semantic-release": "^21.0.1",
-    "@zeit/ncc": "^0.22.3"
+    "semantic-release": "^21.0.1"
   }
 }
