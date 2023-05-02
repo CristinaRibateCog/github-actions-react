@@ -54,6 +54,10 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      - name: pwd
+        run: |
+          pwd
+          ls -a
       - uses: actions/download-artifact@v3
 #      - run: npm install -g surge
 #      - name: Deploy to Staging
