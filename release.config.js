@@ -5,15 +5,6 @@ module.exports = {
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     [
-      "@semantic-release/github",
-      {
-        assets: [
-          { path: "build/build.zip", label: "Build" },
-          { path: "coverage/coverage.zip", label: "Coverage" }
-        ]
-      }
-    ],
-    [
       "@semantic-release/changelog",
       {
         changelogFile: "CHANGELOG.md"
@@ -25,6 +16,15 @@ module.exports = {
         assets: ["CHANGELOG.md"]
       }
     ],
-    "@semantic-release/npm"
+    [
+      "@semantic-release/github",
+      {
+        assets: [
+          { path: "build/build.zip", label: "Build" },
+          { path: "coverage/coverage.zip", label: "Coverage" },
+          { path: "CHANGELOG.md", label: "CHANGELOG" }
+        ]
+      }
+    ]
   ]
 };
