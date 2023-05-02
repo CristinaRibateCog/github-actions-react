@@ -53,7 +53,7 @@ jobs:
         if: github.event_name=='push' && github.ref == 'refs/heads/master'
         run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_TOKEN }}
       - name: pwd
         run: |
           pwd
