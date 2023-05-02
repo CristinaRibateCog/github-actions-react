@@ -1,29 +1,45 @@
 module.exports = {
   branches: ["master"],
   repositoryUrl: "https://github.com/CristinaRibateCog/github-actions-react",
-  pluginS: [
+  // pluginS: [
+  //   "@semantic-release/commit-analyzer",
+  //   "@semantic-release/release-notes-generator",
+  //   [
+  //     "@semantic-release/changelog",
+  //     {
+  //       changelogFile: "CHANGELOG.md"
+  //     }
+  //   ],
+  //   [
+  //     "@semantic-release/git",
+  //     {
+  //       assets: ["CHANGELOG.md"]
+  //     }
+  //   ],
+  //   [
+  //     "@semantic-release/github",
+  //     {
+  //       assets: [
+  //         { path: "build.zip", label: "Build" },
+  //         { path: "coverage.zip", label: "Coverage" },
+  //         { path: "CHANGELOG.md", label: "CHANGELOG" }
+  //       ]
+  //     }
+  //   ]
+  // ]
+  plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     [
       "@semantic-release/changelog",
       {
-        changelogFile: "CHANGELOG.md"
+        changelogFile: "docs/CHANGELOG.md"
       }
     ],
     [
       "@semantic-release/git",
       {
-        assets: ["CHANGELOG.md"]
-      }
-    ],
-    [
-      "@semantic-release/github",
-      {
-        assets: [
-          { path: "build/build.zip", label: "Build" },
-          { path: "coverage/coverage.zip", label: "Coverage" },
-          { path: "CHANGELOG.md", label: "CHANGELOG" }
-        ]
+        assets: ["docs/CHANGELOG.md"]
       }
     ]
   ]
