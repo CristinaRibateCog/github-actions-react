@@ -8,17 +8,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/issue
-        id: issue
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          title: "ISSUE Title"
-          body: "Body Title"
-          assignees: |
-            CristinaRibateCog
-      - run: |
-          echo "Issue: ${{steps.issue.outputs.issue }}"
-      - uses: ./.github/actions/hello
+      # - uses: ./.github/actions/issue
+      #   id: issue
+      #   with:
+      #     token: ${{secrets.GITHUB_TOKEN}}
+      #     title: "ISSUE Title"
+      #     body: "Body Title"
+      #     assignees: |
+      #       CristinaRibateCog
+      # - run: |
+      #     echo "Issue: ${{steps.issue.outputs.issue }}"
+      - uses: ./.github/actions/hello-docker
         id: hello
         with:
           who-to-greet: "Juan"
