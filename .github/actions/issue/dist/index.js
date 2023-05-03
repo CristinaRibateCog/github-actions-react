@@ -9792,37 +9792,33 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
-async function run() {
-  try {
-    const token = core.getInput("token");
-    const title = core.getInput("title");
-    const body = core.getInput("body");
-    const assignees = core.getInput("assignees");
+try {
+  const token = core.getInput("token");
+  const title = core.getInput("title");
+  const body = core.getInput("body");
+  const assignees = core.getInput("assignees");
 
-    const octokit = github.getOctokit(token);
+  const octokit = github.getOctokit(token);
 
-    console.log("title", title);
-    console.log("body", body);
-    console.log("assignees", assignees, assignees.split("\n"));
-    console.log("owner: ", github.context.repo.owner, "github.context.repository.owner.name");
-    console.log("repo: ", github.context.repo.repo, "github.context.repository.name");
-    console.log("github: ", github.context.repo);
+  console.log("title", title);
+  console.log("body", body);
+  console.log("assignees", assignees, assignees.split("\n"));
+  console.log("owner: ", github.context.repo.owner, "github.context.repository.owner.name");
+  console.log("repo: ", github.context.repo.repo, "github.context.repository.name");
+  console.log("github: ", github.context.repo);
 
-    const response = await octokit.rest.issues.create({
-      owner: github.context.repo.owner,
-      repo: github.context.repo.repo,
-      title,
-      body,
-      assignees: assignees ? assignees.split("\n") : undefined
-    });
+  const response = octokit.rest.issues.create({
+    owner: github.context.repo.owner,
+    repo: github.context.repo.repo,
+    title,
+    body,
+    assignees: assignees ? assignees.split("\n") : undefined
+  });
 
-    core.setOutput("issue", JSON.stringify(response.data));
-  } catch (error) {
-    core.setFailed(error.message);
-  }
+  core.setOutput("issue", JSON.stringify(response.data));
+} catch (error) {
+  core.setFailed(error.message);
 }
-
-run();
 
 })();
 
