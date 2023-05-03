@@ -12,7 +12,6 @@ jobs:
           body: "Body Title"
           assignees: |
             CristinaRibateCog
-            cristinaribate
       - run: |
           echo "Issue: ${{steps.issue.outputs.issue }}"
       - uses: ./.github/actions/hello

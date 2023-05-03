@@ -15,7 +15,7 @@ async function run() {
     console.log("assignees", assignees, assignees.split("\n"));
     console.log("owner: ", github.context.repo.owner, "github.context.repository.owner.name");
     console.log("repo: ", github.context.repo.repo, "github.context.repository.name");
-    console.log("github: ", github.context.repository);
+    console.log("github: ", github.context.repo);
 
     const response = await octokit.rest.issues.create({
       owner: github.context.repo.owner,
