@@ -15,3 +15,5 @@ jobs:
       - run: pwd
       - run: ls -a
       - run: mkdir -p root/data/db
+      - run: pwd
+      - run: ls -a
