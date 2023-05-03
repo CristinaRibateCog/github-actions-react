@@ -17,3 +17,9 @@ jobs:
       - run: mkdir -p root/data/db
       - run: pwd
       - run: ls -a
+  run-mongodb:
+    runs-on: ubuntu-latest
+    needs: [install-mongod]
+    steps:
+      - run: ls -a
+      - run: mongod --version
