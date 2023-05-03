@@ -17,7 +17,7 @@ async function run() {
     console.log("repo: ", github.context.repo.repo, "github.context.repository.name");
     console.log("github: ", github.context.repo);
 
-    const response = octokit.rest.issues.create({
+    const response = await octokit.rest.issues.create({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       title,
