@@ -1,24 +1,28 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 
-try {
-  const token = core.getInput("token");
-  const title = core.getInput("title");
-  const body = core.getInput("body");
-  const assignees = core.getInput("assignees");
+async function run() {
+  try {
+    const token = core.getInput("token");
+    const title = core.getInput("title");
+    const body = core.getInput("body");
+    const assignees = core.getInput("assignees");
 
-  const octokit = github.getOctokit(token);
+    const octokit = github.getOctokit(token);
 
-  console.log(github.context.repo.owner, github.context.repo.repo);
-  const response = octokit.rest.issues.create({
-    owner: github.context.repo.owner,
-    repo: github.context.repo.repo,
-    title,
-    body,
-    assignees: assignees ? assignees.split("\n") : undefined
-  });
+    console.log(github.context.repo.owner ?? "no owner", github.context.repo.repo ?? "no repo");
+    const response = await octokit.rest.issues.create({
+      owner: github.context.repo.owner,
+      repo: github.context.repo.repo,
+      title,
+      body,
+      assignees: assignees ? assignees.split("\n") : undefined
+    });
 
-  core.setOutput("issue", JSON.stringify(response.data));
-} catch (error) {
-  core.setFailed(error.message);
+    core.setOutput("issue", JSON.stringify(response.data));
+  } catch (error) {
+    core.setFailed(error.message);
+  }
 }
+
+run();
