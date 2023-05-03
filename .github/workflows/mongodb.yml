@@ -11,3 +11,5 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install -y mongodb-org
       - run: mongod --version
+      - run: ls -a
+      - run: mkdir -p root/data/db
