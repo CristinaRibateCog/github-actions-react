@@ -1,0 +1,27 @@
+on: push
+jobs:
+  testing-action:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+
+    steps:
+      - uses: actions/checkout@v3
+      # - uses: ./.github/actions/issue
+      #   id: issue
+      #   with:
+      #     token: ${{secrets.GITHUB_TOKEN}}
+      #     title: "ISSUE Title"
+      #     body: "Body Title"
+      #     assignees: |
+      #       CristinaRibateCog
+      # - run: |
+      #     echo "Issue: ${{steps.issue.outputs.issue }}"
+      - uses: ./.github/actions/hello-docker
+        id: hello
+        with:
+          who-to-greet: "Juan"
+      - run: |
+          echo "Time: ${{steps.hello.outputs.time }}"
+          echo $HELLO
