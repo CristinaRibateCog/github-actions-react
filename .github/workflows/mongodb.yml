@@ -21,6 +21,7 @@ jobs:
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1
       - run: echo ${{ steps.package-version.outputs.current-version}}
+      - run: npm ci # ~npm install
       - name: Create a Release
         run: npx semantic-release
         env:
