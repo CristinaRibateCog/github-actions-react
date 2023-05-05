@@ -2,14 +2,21 @@ name: mongodb
 on: push
 
 jobs:
-  install-mongod:
+  # install-mongod:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: cd ~
+  #     - run: sudo apt update
+  #     - run: wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+  #     - run: echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+  #     - run: sudo apt-get update
+  #     - run: sudo apt-get install -y mongodb-org
+  #     - run: mongod --version
+  #     - run: mkdir -p root/data/db
+  get-version:
     runs-on: ubuntu-latest
     steps:
-      - run: cd ~
-      - run: sudo apt update
-      - run: wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
-      - run: echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
-      - run: sudo apt-get update
-      - run: sudo apt-get install -y mongodb-org
-      - run: mongod --version
-      - run: mkdir -p root/data/db
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+      - run: echo ${{ steps.package-version.outputs.current-version}}
