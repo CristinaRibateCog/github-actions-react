@@ -44,6 +44,7 @@ jobs:
           --data '{
             "title": "Automated issue: ci-push-main fails",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.\n\n The commit hash was: _${{ github.sha }}_.",
-            "labels":["bug"]
+            "labels":["bug"],
+            "assignees": [${{ github.actor }}],
             }' \
           --fail
