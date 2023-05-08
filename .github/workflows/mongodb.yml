@@ -30,7 +30,7 @@ jobs:
       - name: Create a Release
         run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.SEMANTIC_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: get-npm-version
         id: package-version2
         uses: martinbeentjes/npm-get-version-action@v1.3.1
