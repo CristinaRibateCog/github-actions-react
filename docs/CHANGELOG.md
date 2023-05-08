@@ -1,3 +1,20 @@
+## [2.2.7](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.2.6...v2.2.7) (2023-05-08)
+
+
+### Bug Fixes
+
+* 22 test ([#37](https://github.com/CristinaRibateCog/github-actions-react/issues/37)) ([ea492e4](https://github.com/CristinaRibateCog/github-actions-react/commit/ea492e49dd2825721c369da361e87924764211ce))
+* changelog 11 ([#32](https://github.com/CristinaRibateCog/github-actions-react/issues/32)) ([956802f](https://github.com/CristinaRibateCog/github-actions-react/commit/956802f1bda85be3a42aa347c8786bc90520a70f))
+* github app ([65a4ece](https://github.com/CristinaRibateCog/github-actions-react/commit/65a4ecec7df70bb0eca6291cbbd0e6fced73bee3))
+* permissions ([#29](https://github.com/CristinaRibateCog/github-actions-react/issues/29)) ([7794ba7](https://github.com/CristinaRibateCog/github-actions-react/commit/7794ba7a49cd3528a1b37f90a535c6f2553a457c))
+* permissions ([#30](https://github.com/CristinaRibateCog/github-actions-react/issues/30)) ([ad2f4c0](https://github.com/CristinaRibateCog/github-actions-react/commit/ad2f4c007c2105154d9a5abc37384de85562b653))
+* permissions 2 ([#28](https://github.com/CristinaRibateCog/github-actions-react/issues/28)) ([8d9ecf6](https://github.com/CristinaRibateCog/github-actions-react/commit/8d9ecf610dbb9e99bf35836784eb767405d5ea9d))
+* persist_credentials ([#31](https://github.com/CristinaRibateCog/github-actions-react/issues/31)) ([4f7bf60](https://github.com/CristinaRibateCog/github-actions-react/commit/4f7bf600e00d9399a6efb9c96f7a321f294091c8))
+* release.config.js ([#42](https://github.com/CristinaRibateCog/github-actions-react/issues/42)) ([aa0ecf0](https://github.com/CristinaRibateCog/github-actions-react/commit/aa0ecf0be3f68c850ea74728cf4a2b71d76ce81f))
+* temporary disable rules ([cfef1a1](https://github.com/CristinaRibateCog/github-actions-react/commit/cfef1a18e1dcde4b9a0c5439ae7f9e38b89833af))
+* test package.json with npm ([#40](https://github.com/CristinaRibateCog/github-actions-react/issues/40)) ([bc66319](https://github.com/CristinaRibateCog/github-actions-react/commit/bc66319eedf91109567512925a9c5678dce7474d))
+* xxxxx ([#33](https://github.com/CristinaRibateCog/github-actions-react/issues/33)) ([2c96a61](https://github.com/CristinaRibateCog/github-actions-react/commit/2c96a619108ba22b3e9622e756efb1cf02e9b05e))
+
 ## [2.3.5](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.4...v2.3.5) (2023-05-08)
 
 
