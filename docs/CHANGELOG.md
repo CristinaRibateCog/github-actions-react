@@ -1,3 +1,11 @@
+## [2.3.5](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.4...v2.3.5) (2023-05-08)
+
+
+### Bug Fixes
+
+* release config ([ec5586a](https://github.com/CristinaRibateCog/github-actions-react/commit/ec5586a615ff71172531718beb4db614804d8bd3))
+* test package.json with npm ([#40](https://github.com/CristinaRibateCog/github-actions-react/issues/40)) ([bc66319](https://github.com/CristinaRibateCog/github-actions-react/commit/bc66319eedf91109567512925a9c5678dce7474d))
+
 ## [2.3.3](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.2...v2.3.3) (2023-05-08)
 
 
