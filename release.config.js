@@ -40,8 +40,8 @@ module.exports = {
     [
       "@semantic-release/git",
       {
-        assets: ["docs/CHANGELOG.md", "package.json"]
-        "message": "chore(release): ${nextRelease.version}- ${nextRelease.gitTag}"
+        assets: ["docs/CHANGELOG.md", "package.json"],
+        message: "chore(release): ${nextRelease.version}- ${nextRelease.gitTag}"
       }
     ]
   ]
