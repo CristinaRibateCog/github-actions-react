@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.1...v2.3.2) (2023-05-08)
+
+
+### Bug Fixes
+
+* test package.json update ([9731cf2](https://github.com/CristinaRibateCog/github-actions-react/commit/9731cf2be659490c6af5905b8158274375911e22))
+
 ## [2.3.1](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.0...v2.3.1) (2023-05-05)
 
 
