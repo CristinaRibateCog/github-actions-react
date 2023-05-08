@@ -51,13 +51,8 @@ jobs:
         run: |
           zip -r build.zip ./build
           zip -r coverage.zip ./coverage
-      - name: Temporarily disable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@master
-        if: github.event_name=='push' && github.ref == 'refs/heads/master'
-        with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
       - name: Create a Release
+        id: release
         if: github.event_name=='push' && github.ref == 'refs/heads/master'
         run: npx semantic-release
         env:
@@ -66,14 +61,7 @@ jobs:
         run: |
           pwd
           ls -a
-      - name: Enable "include administrators" branch protection
-        uses: benjefferies/branch-protection-bot@master
-        if: github.event_name=='push' && github.ref == 'refs/heads/master' # Force to always run this step to ensure "include administrators" is always turned back on
-        with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
-          owner: CristinaRibateCog
-          repo: github-actions-react
-          branch: master
+          echo ${{ steps.release.outputs}}
       - uses: actions/download-artifact@v3
 #      - run: npm install -g surge
 #      - name: Deploy to Staging
