@@ -1,5 +1,5 @@
 module.exports = {
-  branches: ["master"],
+  branches: ["master", "workflow"],
   repositoryUrl: "https://github.com/CristinaRibateCog/github-actions-react",
   // pluginS: [
   //   "@semantic-release/commit-analyzer",
@@ -30,6 +30,7 @@ module.exports = {
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
     [
       "@semantic-release/changelog",
       {
@@ -39,7 +40,7 @@ module.exports = {
     [
       "@semantic-release/git",
       {
-        assets: ["docs/CHANGELOG.md"]
+        assets: ["docs/CHANGELOG.md", "package.json"]
       }
     ]
   ]
