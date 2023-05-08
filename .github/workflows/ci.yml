@@ -63,7 +63,8 @@ jobs:
           pwd
           ls -a
           echo ${{ toJSON(steps.release.outputs)}}
-      - uses: actions/download-artifact@v3
+
+#      - uses: actions/download-artifact@v3
 #      - run: npm install -g surge
 #      - name: Deploy to Staging
 #        if: github.event_name=="push"
