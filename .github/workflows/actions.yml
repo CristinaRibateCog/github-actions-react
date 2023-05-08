@@ -32,6 +32,7 @@ jobs:
           echo  "${{ github.repository }}"
           echo  "$GITHUB_SHA"
           echo  "${{ github.sha }}"
+          echo  "${{ github.actor }}"
           echo "$GITHUB_WORKFLOW"
           eccho "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Create issue
