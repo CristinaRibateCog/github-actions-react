@@ -30,8 +30,10 @@ jobs:
           echo  "$GITHUB_RUN_ID"
           echo  "$GITHUB_REPOSITORY"
           echo  "${{ github.repository }}"
+          echo  "$GITHUB_SHA"
+          echo  "${{ github.sha }}"
           echo "$GITHUB_WORKFLOW"
-          echo "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          eccho "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Create issue
         if: failure()
         run: |
