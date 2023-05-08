@@ -27,4 +27,6 @@ jobs:
           echo $HELLO
           echo  "${{github.event.pull_request.user.login}}"
           echo  "$GITHUB_ACTOR"
+          echo  "$GITHUB_RUN_ID"
+          echo  "$GITHUB_REPOSITORY"
           echo "https://github.com/${{ github.repository}}/actions/runs/${{ github.run_id }}"
