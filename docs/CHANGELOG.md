@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.2...v2.3.3) (2023-05-08)
+
+
+### Bug Fixes
+
+* no artifcats ([#46](https://github.com/CristinaRibateCog/github-actions-react/issues/46)) ([2f50c4a](https://github.com/CristinaRibateCog/github-actions-react/commit/2f50c4a0e5068a540253fa6e9fa900005d2d17dc))
+
 ## [2.3.2](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.1...v2.3.2) (2023-05-08)
 
 
