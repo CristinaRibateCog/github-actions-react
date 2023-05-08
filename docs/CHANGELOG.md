@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.2.7...v2.3.0) (2023-05-08)
+
+
+### Features
+
+* release assets ([#43](https://github.com/CristinaRibateCog/github-actions-react/issues/43)) ([adcee03](https://github.com/CristinaRibateCog/github-actions-react/commit/adcee039e018efbd0439a8ff8523443ce7aff807))
+* semantic version mayor ([#45](https://github.com/CristinaRibateCog/github-actions-react/issues/45)) ([f1e752b](https://github.com/CristinaRibateCog/github-actions-react/commit/f1e752bd678a7c29a0410f3a0bb5a899bd8d21cf))
 
 ## [2.3.5](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.4...v2.3.5) (2023-05-08)
 
