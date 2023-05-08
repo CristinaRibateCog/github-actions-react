@@ -43,6 +43,16 @@ module.exports = {
         assets: ["docs/CHANGELOG.md", "package.json"],
         message: "chore(release): ${nextRelease.version}- ${nextRelease.gitTag}"
       }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        assets: [
+          { path: "build.zip", label: "Build" },
+          { path: "coverage.zip", label: "Coverage" },
+          { path: "package.json", label: "Package" }
+        ]
+      }
     ]
   ]
 };
