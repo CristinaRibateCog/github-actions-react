@@ -29,4 +29,4 @@ jobs:
           echo  "$GITHUB_ACTOR"
           echo  "$GITHUB_RUN_ID"
           echo  "$GITHUB_REPOSITORY"
-          echo "https://github.com/${{ github.repository}}/actions/runs/${{ github.run_id }}"
+          echo "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
