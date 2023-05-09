@@ -22,6 +22,8 @@ jobs:
         id: hello
         with:
           who-to-greet: "Juan"
+      - run: echo ::set-output name=actor::$GITHUB_ACTOR
+        id: env_variables
       - run: |
           echo "Time: ${{steps.hello.outputs.time }}"
           echo $HELLO
@@ -34,6 +36,7 @@ jobs:
           echo  "${{ github.sha }}"
           echo  "${{ github.actor }}"
           echo "$GITHUB_WORKFLOW"
+          echo " ${{ steps.env_variables.outputs.actor }"
           eccho "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       # - name: Create issue
       #   if: failure()
@@ -49,6 +52,7 @@ jobs:
       #       "assignees": ["CristinaRibateCog"],
       #       }' \
       #     --fail
+
       - uses: ./.github/actions/issue
         if: failure()
         name: Error - Create issue
@@ -57,4 +61,4 @@ jobs:
           title: "Automated issue: ci-push-main fails"
           body: "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.\n\n The commit hash was: _${{ github.sha }}_."
           assignees: |
-            CristinaRibateCog
+            ${{ steps.env_variables.outputs.actor }
