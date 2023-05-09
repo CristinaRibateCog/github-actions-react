@@ -37,7 +37,7 @@ jobs:
         with:
           path: coverage
           name: code-coverage
-      - name: Build Project
+      - name: Build Projects
         if: github.event_name=='push'
         run: npm run build
       # - name: Upload Build Folder
