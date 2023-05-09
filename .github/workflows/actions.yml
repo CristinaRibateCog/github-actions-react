@@ -4,10 +4,17 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-    env:
-      actor: $GITHUB_ACTOR
+      issues: write # to be able to comment on released issue
+    if: contains(github.event.head_commit.message , 'test(some):') == false
     steps:
+      - run: echo '${{ github.event.head_commit.message}}'
+      - run: echo '${{ toJSON(github.event) }}'
+      - run: echo "match"
+        if: contains(github.event.head_commit.message , 'test(some):')
+        id: match
+      - run: echo "${{toJSON(steps.match)}}"
+      - run: echo "no match"
+        if: steps.match.outcome=='skipped'
       - uses: actions/checkout@v3
       # - uses: ./.github/actions/issue
       #   id: issue
@@ -19,6 +26,7 @@ jobs:
       #       CristinaRibateCog
       # - run: |
       #     echo "Issue: ${{steps.issue.outputs.issue }}"
+
       - run: echo ::set-output name=actor::$GITHUB_ACTOR
         id: env_variables
       - uses: ./.github/actions/hello-docker
