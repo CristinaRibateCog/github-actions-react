@@ -13,7 +13,7 @@ jobs:
         id: match
       - run: echo "${{toJSON(steps.match)}}"
       - run: echo "no match"
-        if: steps.match.outcome===skipped
+        if: steps.match.outcome=="skipped"
       - uses: actions/checkout@v3
       # - uses: ./.github/actions/issue
       #   id: issue
