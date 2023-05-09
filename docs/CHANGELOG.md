@@ -1,3 +1,11 @@
+## [2.3.4](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.3...v2.3.4) (2023-05-09)
+
+
+### Bug Fixes
+
+* Protection rule master ([#55](https://github.com/CristinaRibateCog/github-actions-react/issues/55)) ([bb184ac](https://github.com/CristinaRibateCog/github-actions-react/commit/bb184ac2fcdcbc2a17ccf9e4c725882707a084dd))
+* rotection rule master2 ([#59](https://github.com/CristinaRibateCog/github-actions-react/issues/59)) ([6bd84f9](https://github.com/CristinaRibateCog/github-actions-react/commit/6bd84f9cfc2a4836b01d4ad05cd3c8dd9ebc7208))
+
 ## [2.3.3](https://github.com/CristinaRibateCog/github-actions-react/compare/v2.3.2...v2.3.3) (2023-05-08)
 
 
