@@ -8,7 +8,6 @@ jobs:
     env:
       actor: $GITHUB_ACTOR
     steps:
-      - run: echo ${{ github.event.commits[0].message}}
       # - run: echo "match"
       #   if: contains( ${{ github.event.commits[0].message }} , 'chore(release): v')
       - uses: actions/checkout@v3
@@ -22,6 +21,7 @@ jobs:
       #       CristinaRibateCog
       # - run: |
       #     echo "Issue: ${{steps.issue.outputs.issue }}"
+      - run: echo ${{ github.event.commits[0].message}}
       - run: echo ::set-output name=actor::$GITHUB_ACTOR
         id: env_variables
       - uses: ./.github/actions/hello-docker
