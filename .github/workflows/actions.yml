@@ -50,6 +50,7 @@ jobs:
       #       }' \
       #     --fail
       - uses: ./.github/actions/issue
+        if: failure()
         name: Error - Create issue
         with:
           token: ${{secrets.GITHUB_TOKEN}}
