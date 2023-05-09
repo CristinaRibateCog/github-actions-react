@@ -7,12 +7,15 @@ on:
 
 jobs:
   build:
+    if: contains(github.event.head_commit.message , 'chore(release):') == false
     runs-on: ubuntu-latest
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
     steps:
+      - run: echo ::set-output name=actor::$GITHUB_ACTOR
+        id: env_variables
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.SEMANTIC_TOKEN }}
@@ -63,12 +66,25 @@ jobs:
           pwd
           ls -a
           echo ${{ toJSON(steps.release.outputs)}}
-
-#      - uses: actions/download-artifact@v3
-#      - run: npm install -g surge
-#      - name: Deploy to Staging
-#        if: github.event_name=="push"
-#        run: npx surge --project ./build --domain silent-apparatus.surge.sh
-#        env:
-#          SURGE_LOGIN: ${{secrets.SURGE_LOGIN }}
-#          SURGE_TOKEN: ${{secrets.SURGE_TOKEN }}
+      #      - uses: actions/download-artifact@v3
+      #      - run: npm install -g surge
+      #      - name: Deploy to Staging
+      #        if: github.event_name=="push"
+      #        run: npx surge --project ./build --domain silent-apparatus.surge.sh
+      #        env:
+      #          SURGE_LOGIN: ${{secrets.SURGE_LOGIN }}
+      #          SURGE_TOKEN: ${{secrets.SURGE_TOKEN }}
+      - name: Create issue
+        if: failure()
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "title": "Automated issue: ci-push-main fails",
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.\n\n The commit hash was: _${{ github.sha }}_.",
+            "labels":["bug"],
+            "assignees": ["${{ steps.env_variables.outputs.actor }}"]
+            }' \
+          --fail
