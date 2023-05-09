@@ -10,7 +10,10 @@ jobs:
     steps:
       - run: echo ${{ github.event.commits[0].message}}
       - run: echo ${{ toJSON(github.event.commits)}}
-
+      - run: echo "match"
+        if: contains(github.event.commits[0].message , "chore(release):\sv")
+        id: match
+      - run: echo "${{toJSON(steps.match)}}"
       - uses: actions/checkout@v3
       # - uses: ./.github/actions/issue
       #   id: issue
