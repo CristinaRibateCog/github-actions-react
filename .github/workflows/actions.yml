@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
+      issues: write # to be able to comment on released issue
     steps:
       - run: echo ${{ github.event.commits[github.event.commits.length-1].message}}
       - run: echo ${{ toJSON(github.event.commits)}}
