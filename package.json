@@ -1,6 +1,6 @@
 {
   "name": "github-actions-react-workflow",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "private": true,
   "dependencies": {
     "@actions/core": "^1.10.0",
