@@ -7,7 +7,7 @@ jobs:
       issues: write # to be able to comment on released issues
     steps:
       - run: echo ${{ github.event.commits.length}} | jq '. | length'
-      - run: echo ${{ github.event.commits[-1]}}
+      # - run: echo ${{ github.event.commits[-1]}}
       - run: echo ${{ github.event.commits[github.event.commits.length-1].message}}
       - run: echo ${{ toJSON(github.event.commits)}}
       - run: echo "match"
