@@ -5,6 +5,7 @@ jobs:
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
+    if: contains(github.event.head_commit.message , 'test(some):') == false
     steps:
       - run: echo '${{ github.event.head_commit.message}}'
       - run: echo '${{ toJSON(github.event) }}'
@@ -13,7 +14,7 @@ jobs:
         id: match
       - run: echo "${{toJSON(steps.match)}}"
       - run: echo "no match"
-        if: steps.match.outcome=='push'
+        if: steps.match.outcome=='skipped'
       - uses: actions/checkout@v3
       # - uses: ./.github/actions/issue
       #   id: issue
