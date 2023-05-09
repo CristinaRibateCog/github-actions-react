@@ -40,26 +40,26 @@ jobs:
       - run: echo ::set-output name=actor::$GITHUB_ACTOR
         if: failure()
         id: env_variables
-      # - name: Create issue
-      #   if: failure()
-      #   run: |
-      #     curl --request POST \
-      #     --url https://api.github.com/repos/${{ github.repository }}/issues \
-      #     --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-      #     --header 'content-type: application/json' \
-      #     --data '{
-      #       "title": "Automated issue: ci-push-main fails",
-      #       "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.\n\n The commit hash was: _${{ github.sha }}_.",
-      #       "labels":["bug"],
-      #       "assignees": ["${{ steps.env_variables.outputs.actor }}"],
-      #       }' \
-      #     --fail
-      - uses: ./.github/actions/issue
+      - name: Create issue
         if: failure()
-        name: Error - Create issue
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          title: "Automated issue: ci-push-main fails"
-          body: "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.\n\n The commit hash was: _${{ github.sha }}_."
-          assignees: |
-            ${{ steps.env_variables.outputs.actor }}
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "title": "Automated issue: ci-push-main fails",
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.\n\n The commit hash was: _${{ github.sha }}_.",
+            "labels":["bug"],
+            "assignees": ["${{ steps.env_variables.outputs.actor }}"],
+            }' \
+          --fail
+      # - uses: ./.github/actions/issue
+      #   if: failure()
+      #   name: Error - Create issue
+      #   with:
+      #     token: ${{secrets.GITHUB_TOKEN}}
+      #     title: "Automated issue: ci-push-main fails"
+      #     body: "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.\n\n The commit hash was: _${{ github.sha }}_."
+      #     assignees: |
+      #       ${{ steps.env_variables.outputs.actor }}
