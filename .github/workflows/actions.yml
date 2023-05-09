@@ -19,6 +19,8 @@ jobs:
       #       CristinaRibateCog
       # - run: |
       #     echo "Issue: ${{steps.issue.outputs.issue }}"
+      - run: echo ::set-output name=actor::$GITHUB_ACTOR
+        id: env_variables
       - uses: ./.github/actions/hello-docker
         id: hello
         with:
@@ -37,9 +39,6 @@ jobs:
           echo "$GITHUB_WORKFLOW"
            echo "${{env.actor}}"
           eccho "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-      - run: echo ::set-output name=actor::$GITHUB_ACTOR
-        if: failure()
-        id: env_variables
       - name: Create issue
         if: failure()
         run: |
@@ -51,7 +50,7 @@ jobs:
             "title": "Automated issue: ci-push-main fails",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}.\n\n The commit hash was: _${{ github.sha }}_.",
             "labels":["bug"],
-            "assignees": "${{ steps.env_variables.outputs.actor }}"
+            "assignees": ["${{ steps.env_variables.outputs.actor }}"]
             }' \
           --fail
       # - uses: ./.github/actions/issue
