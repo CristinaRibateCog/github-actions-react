@@ -8,8 +8,8 @@ jobs:
     env:
       actor: $GITHUB_ACTOR
     steps:
-      - run: echo ${{ github.event.commits[0].message}}
-      - run: echo ${{ toJSON(github.event.commits)}}
+      - run: echo ${{ github.event.commits[github.event.commits.length-1].message}}
+      # - run: echo ${{ toJSON(github.event.commits)}}
       - run: echo "match"
         if: contains(github.event.commits[0].message , 'chore(release):\sv')
         id: match
