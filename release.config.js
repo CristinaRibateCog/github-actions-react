@@ -34,13 +34,13 @@ module.exports = {
     [
       "@semantic-release/changelog",
       {
-        changelogFile: "docs/CHANGELOG.md"
+        changelogFile: "CHANGELOG.md"
       }
     ],
     [
       "@semantic-release/git",
       {
-        assets: ["docs/CHANGELOG.md", "package.json"],
+        assets: ["CHANGELOG.md", "package.json"],
         message: "chore(release): ${nextRelease.gitTag}"
       }
     ],
@@ -49,8 +49,7 @@ module.exports = {
       {
         assets: [
           { path: "build.zip", label: "Build" },
-          { path: "coverage.zip", label: "Coverage" },
-          { path: "package.json", label: "Package" }
+          { path: "coverage.zip", label: "Coverage" }
         ]
       }
     ]

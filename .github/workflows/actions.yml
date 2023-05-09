@@ -37,8 +37,8 @@ jobs:
           echo  "${{ github.sha }}"
           echo  "${{ github.actor }}"
           echo "$GITHUB_WORKFLOW"
-           echo "${{env.actor}}"
-          eccho "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          echo "${{env.actor}}"
+          echo "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Create issue
         if: failure()
         run: |
