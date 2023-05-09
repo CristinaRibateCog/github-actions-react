@@ -6,12 +6,10 @@ jobs:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
     steps:
-      - run: gt(${{length( github.event.commits)}}, 0)
-      - run: ${{length( github.event.commits)}}
-      - run: echo ${{ github.event.commits[github.event.commits.length-1].message}}
-      - run: echo ${{ toJSON(github.event.commits)}}
+      - run: echo ${{ github.event.head_commit.message}}
+      - run: echo ${{ toJSON(github.event)}}
       - run: echo "match"
-        if: contains(github.event.commits[0].message , 'chore(release):\sv')
+        if: contains(github.event.head_commit.message , 'chore(release):\sv')
         id: match
       - run: echo "${{toJSON(steps.match)}}"
       - run: echo "no match"
