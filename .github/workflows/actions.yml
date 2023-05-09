@@ -6,7 +6,7 @@ jobs:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
     env:
-      actor: "$GITHUB_ACTOR"
+      actor: ${{$GITHUB_ACTOR}}
     steps:
       - uses: actions/checkout@v3
       # - uses: ./.github/actions/issue
