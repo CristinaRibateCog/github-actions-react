@@ -7,9 +7,9 @@ jobs:
       issues: write # to be able to comment on released issues
     steps:
       # - run: echo ${{ github.event.head_commit.message}}
-      - run: echo ${{ toJSON(github.event)}}
+      - run: echo '${{ toJSON(github.event) }}'
       - run: echo "match"
-        if: contains(github.event.head_commit.message , 'test(some):\sdummy')
+        if: contains(github.event.head_commit.message , 'test(some):\sdummy11')
         id: match
       - run: echo "${{toJSON(steps.match)}}"
       - run: echo "no match"
